@@ -52,6 +52,7 @@ app.post("/profile-service", (req, res) => {
     })
     .apply()
     .then((response) => {
+      api.setToken(null)
       if (response.status == 200) {
         return res.send({
           status: "success",
@@ -65,6 +66,7 @@ app.post("/profile-service", (req, res) => {
       }
     })
     .catch((e) => {
+      api.setToken(null);
       return res.send({
         status: "failure",
         message: `User profile update failed ${e}`,
