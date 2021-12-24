@@ -73,6 +73,15 @@ app.post("/profile-service", (req, res) => {
       });
     });
 });
+
+app.get("/feedback",(req,res)=>{
+  return res.send("<h1>Feedback</h1>")
+})
+
+app.get("/about",(req,res)=>{
+  return res.send("<h1>About</h1>")
+})
+
 app.listen(PORT, (err) => {
   if (err) {
     console.log(err);
