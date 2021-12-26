@@ -176,12 +176,12 @@ app.post("/profile-service", (req, res) => {
     .then((response) => {
       api.setToken(null);
       if (response.status == 200) {
-        return res.json({
+        return res.send({
           status: "success",
           message: "User profile updated!",
         });
       } else {
-        return res.json({
+        return res.send({
           status: "failure",
           message: `User profile update failed ${response.status}`,
         });
@@ -189,7 +189,7 @@ app.post("/profile-service", (req, res) => {
     })
     .catch((e) => {
       api.setToken(null);
-      return res.json({
+      return res.send({
         status: "failure",
         message: `User profile update failed ${e}`,
       });
